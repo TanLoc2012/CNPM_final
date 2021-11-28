@@ -18,6 +18,17 @@
         <link href="/vnpay_php/assets/jumbotron-narrow.css" rel="stylesheet">         
         <script src="/vnpay_php/assets/jquery-1.11.3.min.js"></script>
     </head>
+    <style>
+        body{
+            background-color: #d2d6de;
+        }
+        #return_payment{
+            width: 40%;
+            margin:150px auto;
+            background-color: white;
+            padding: 20px 0 0 20px;
+        }
+    </style>
     <body>
         <?php
         $vnp_TmnCode = "M8HTHR13"; //Website ID in VNPAY System
@@ -49,9 +60,9 @@
 		$secureHash = hash('sha256',$vnp_HashSecret . $hashData);
         ?>
         <!--Begin display -->
-        <div class="container">
-            <div class="header clearfix">
-                <h3 class="text-muted">Thông tin thanh toán</h3>
+        <div class="container" id="return_payment">
+            <div class="header clearfix ">
+                <h3 class="text-muted" style="text-align: center;font-weight: 900;font-size: 25px;">Thông tin thanh toán</h3>
             </div>
             <div class="table-responsive">
                 <div class="form-group">
@@ -145,16 +156,13 @@
                     </label>
                     <br>
                     <a href="http://localhost/Laptrinhweb/Home">
-                        <button>Quay lại</button>
+                        <button>Quay lại Trang chủ</button>
                     </a>
                 </div> 
             </div>
             <p>
                 &nbsp;
             </p>
-            <footer class="footer">
-                <p>&copy; Quản lý Tiếng Anh 2020</p>
-            </footer>
         </div>  
     </body>
 </html>

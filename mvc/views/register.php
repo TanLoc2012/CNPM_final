@@ -57,8 +57,10 @@
     <input type="text" class="form-control" id="address" name="address">
   </div>
   <div>
+    <button type="submit" onclick="checkRegister()" name="btnRegister" class="btn btn-primary">Đăng ký</button>
+    <br/>
     <a id="link_login" href="http://localhost/Laptrinhweb/Login">Tôi đã có tài khoản</a>
-    <button type="submit" onclick="checkRegister()" name="btnRegister" class="btn btn-primary">Register</button>
+    <br/>
     <a id="link_register" href="http://localhost/Laptrinhweb/Home">Trở về trang chủ</a>
   </div>
   

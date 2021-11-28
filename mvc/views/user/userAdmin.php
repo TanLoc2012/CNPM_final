@@ -26,9 +26,9 @@
 			<tbody>
 <?php
 	$countUser = count($data["allUser"]);
-	for($i=0; $i<$countUser; $i++) {
+	for($i=$data["currentIndex"];$i<$data["currentIndex"]+8 && $i<$countUser;$i++) {
 		echo '<tr>
-					<th>'.$i.'</th>
+					<th>'.($i+1).'</th>
 					<td>'.$data["allUser"][$i]['fullname'].'</td>
 					<td>'.$data["allUser"][$i]['email'].'</td>
 					<td>'.$data["allUser"][$i]['phone_number'].'</td>
@@ -49,6 +49,32 @@
 			</tbody>
 		</table>
 	</div>
+	<nav aria-label="Page navigation example">
+            <ul class="pagination pg-blue justify-content-center">
+                <li class="page-item">
+            <?php
+                    if($data["numPages"]>1){
+                        if($data["pages"]==1){
+                            echo    '<a href="http://localhost/Laptrinhweb/UserAdmin/SayHi/1" class="page-link"><i class="fa fa-chevron-left"></i> Previous</a>';
+                        }
+                        else echo    '<a href="http://localhost/Laptrinhweb/UserAdmin/SayHi/'.($data["pages"]-1).'" class="page-link"><i class="fa fa-chevron-left"></i> Previous</a>';
+                        echo '</li>';
+                        for($i=1; $i<=$data["numPages"];$i++){
+                            if($i == $data["pages"]){
+                                echo '<li class="page-item active"><a class="page-link" href="http://localhost/Laptrinhweb/UserAdmin/SayHi/'.$i.'">'.$i.'</a></li>';
+                            }
+                            else echo '<li><a class="page-link" href="http://localhost/Laptrinhweb/UserAdmin/SayHi/'.$i.'">'.$i.'</a></li>';
+                        }
+                        echo '<li class="page-item">';
+                        if($data["pages"] == $data["numPages"]){
+                            echo '<a href="http://localhost/Laptrinhweb/UserAdmin/SayHi/1" class="page-link"> Next <i class="fa fa-chevron-right"></i></a>';
+                        }
+                        else echo '<a href="http://localhost/Laptrinhweb/UserAdmin/SayHi/'.($data["pages"]+1).'" class="page-link "> Next <i class="fa fa-chevron-right"></i></a>';
+                    }
+                ?>
+                </li>
+            </ul>
+        </nav>
 </div>
 
 <?php

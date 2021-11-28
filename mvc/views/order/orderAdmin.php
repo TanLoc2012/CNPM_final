@@ -22,9 +22,9 @@
 			<tbody>
 <?php
 	$countOrder = count($data["allOrder"]);
-	for ($i=0; $i<$countOrder; $i++) {
+	for($i=$data["currentIndex"];$i<$data["currentIndex"]+8 && $i<$countOrder;$i++) {
 		echo '<tr>
-					<th>'.$i.'</th>
+					<th>'.($i+1).'</th>
 					<td><a href="http://localhost/Laptrinhweb/OrderAdmin/detailOrder/'.$data["allOrder"][$i]['id'].'">'.$data["allOrder"][$i]['fullname'].'</a></td>
 					<td>'.$data["allOrder"][$i]['email'].'</a></td>
 					<td>'.number_format($data["allOrder"][$i]['total_money']).' đ</td>
@@ -51,6 +51,32 @@
 			</tbody>
 		</table>
 	</div>
+	<nav aria-label="Page navigation example">
+            <ul class="pagination pg-blue justify-content-center">
+                <li class="page-item">
+            <?php
+                    if($data["numPages"]>1){
+                        if($data["pages"]==1){
+                            echo    '<a href="http://localhost/Laptrinhweb/OrderAdmin/SayHi/1" class="page-link"><i class="fa fa-chevron-left"></i> Previous</a>';
+                        }
+                        else echo    '<a href="http://localhost/Laptrinhweb/OrderAdmin/SayHi/'.($data["pages"]-1).'" class="page-link"><i class="fa fa-chevron-left"></i> Previous</a>';
+                        echo '</li>';
+                        for($i=1; $i<=$data["numPages"];$i++){
+                            if($i == $data["pages"]){
+                                echo '<li class="page-item active"><a class="page-link" href="http://localhost/Laptrinhweb/OrderAdmin/SayHi/'.$i.'">'.$i.'</a></li>';
+                            }
+                            else echo '<li><a class="page-link" href="http://localhost/Laptrinhweb/OrderAdmin/SayHi/'.$i.'">'.$i.'</a></li>';
+                        }
+                        echo '<li class="page-item">';
+                        if($data["pages"] == $data["numPages"]){
+                            echo '<a href="http://localhost/Laptrinhweb/OrderAdmin/SayHi/1" class="page-link"> Next <i class="fa fa-chevron-right"></i></a>';
+                        }
+                        else echo '<a href="http://localhost/Laptrinhweb/OrderAdmin/SayHi/'.($data["pages"]+1).'" class="page-link "> Next <i class="fa fa-chevron-right"></i></a>';
+                    }
+                ?>
+                </li>
+            </ul>
+        </nav>
 </div>
 <?php
 	require_once('mvc/views/blocks/footer_admin.php');

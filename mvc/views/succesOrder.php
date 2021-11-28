@@ -48,7 +48,7 @@
         <i class="checkmark">✓</i>
       </div>
         <h1>Đặt hàng thành công</h1> 
-        <p>Đơn hàng sẽ được giao đến trong thời gian tối đa là 7 ngày</p>
+        <p>Đơn hàng sẽ được hoàn thành trước khi quý khách đến 5ph</p>
         <?php
           
         ?>
